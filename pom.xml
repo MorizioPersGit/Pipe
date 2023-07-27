@@ -33,10 +33,14 @@
             <workerType>Micro</workerType>
             <environment>Sandbox</environment>
             <muleVersion>4.4.0</muleVersion>
-            <applicationName>mavendeployed</applicationName>
+            <applicationName>pipe</applicationName>
             <properties>
               <maven.compiler.target>1.8</maven.compiler.target>
               <maven.compiler.source>1.8</maven.compiler.source>
+              <anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com/</anypoint.platform.analytics_base_uri>
+              <anypoint.platform.client_id>e67abd7d6b264faba197f895ae0c2e6a</anypoint.platform.client_id>
+              <anypoint.platform.client_secret>0171C21B20e34Cec938d4a0891e3DE62</anypoint.platform.client_secret>
+              <anypoint.platform.base_uri>https://anypoint.mulesoft.com/</anypoint.platform.base_uri>
             </properties>
           </cloudHubDeployment>
         </configuration>
