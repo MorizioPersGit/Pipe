@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+  <http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="b822e2ba-c978-4636-b283-c3c5bdafde96" >
+    <http:listener-connection host="0.0.0.0" port="8088" />
+  </http:listener-config>
+  <flow name="pipeFlow" doc:id="9cd789c7-d01e-4754-b16d-38241285e3de" >
+    <http:listener doc:name="Listener" doc:id="0a975063-56bc-4b53-bcad-05331b3a834e" config-ref="HTTP_Listener_config" path="/pipe"/>
+    <logger level="INFO" doc:name="Logger" doc:id="c4de7aac-2cd9-49ae-b599-a134a69c0d73" />
+    <ee:transform doc:name="Transform Message" doc:id="e4377d5e-a315-46b0-bd7f-dc6e634da6bc" >
+      <ee:message >
+        <ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"Res": "Done"
+}]]></ee:set-payload>
+      </ee:message>
+    </ee:transform>
+  </flow>
+</mule>
